@@ -3,3 +3,9 @@ resource "openfaas_function" "function_test" {
   image     = "ghcr.io/openfaas/alpine:latest"
   f_process = "env"
 }
+
+resource "openfaas_function" "env" {
+  name      = "env"
+  image     = "ghcr.io/openfaas/alpine:latest"
+  f_process = "env"
+}
