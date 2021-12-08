@@ -1,5 +1,5 @@
 #!/bin/bash
-set -x
+set -e
 
 if [ -x "/usr/local/bin/terraform" ]; then
     echo "Terraform already installed"
@@ -19,4 +19,4 @@ terraform init
 
 export TF_VAR_openfaas_password=$(cat /run/secrets/basic-auth-password)
 
-terraform plan
+terraform apply -auto-approve
