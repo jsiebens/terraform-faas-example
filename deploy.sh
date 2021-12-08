@@ -2,6 +2,7 @@
 set -e
 
 mkdir -p /var/opt/terraform/bin
+mkdir -p /var/opt/terraform/state
 
 if [ -x "/var/opt/terraform/bin/terraform" ]; then
     echo "Terraform already installed"
