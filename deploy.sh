@@ -1,22 +1,23 @@
 #!/bin/bash
 set -e
 
-if [ -x "/usr/local/bin/terraform" ]; then
+mkdir -p /var/opt/terraform/bin
+
+if [ -x "/var/opt/terraform/bin/terraform" ]; then
     echo "Terraform already installed"
 else
-    cd /tmp
+    cd /var/opt/terraform/bin
     wget https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_linux_amd64.zip
     unzip terraform_1.0.11_linux_amd64.zip
-    mv terraform /usr/local/bin/
     rm -rf terraform_1.0.11_linux_amd64.zip
 fi
 
 
-/usr/local/bin/terraform version
+/var/opt/terraform/bin/terraform version
 
 cd /var/opt/terraform/src
-terraform init
 
 export TF_VAR_openfaas_password=$(cat /run/secrets/basic-auth-password)
 
-terraform apply -auto-approve
+/var/opt/terraform/bin/terraform init
+/var/opt/terraform/bin/terraform apply -auto-approve
