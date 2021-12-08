@@ -15,3 +15,6 @@ mv terraform /usr/local/bin/
 rm -rf terraform_1.0.11_linux_amd64.zip
 
 /usr/local/bin/terraform version
+
+cd /var/opt/terraform/src
+terraform init
