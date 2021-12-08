@@ -10,4 +10,4 @@ cd /tmp
 
 wget https://releases.hashicorp.com/terraform/1.0.11/terraform_1.0.11_linux_amd64.zip
 unzip terraform_1.0.11_linux_amd64.zip
-mv terraform /usr/local/bin/
+sudo mv terraform /usr/local/bin/
